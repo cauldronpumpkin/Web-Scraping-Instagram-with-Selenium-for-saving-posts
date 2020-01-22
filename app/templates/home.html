@@ -1,0 +1,59 @@
+<html>
+<body>
+<br> <br> <br> <br> 
+<h1 style="font-family: monospace; margin-left: 770px;"> INSTAGRAM IMAGE DOWNLOADER </h1>
+<div>
+    <input id="url"></input><br><br> <br>
+    <button class="btn" onclick="first()"> Get First Image</button> <br> <br>
+    <button class="btn" onclick="next()"> Next Image</button> <br> <br>
+    <button class="btn" onclick="prev()"> Previous Image</button>
+</div>
+</body>
+<script type="text/javascript">
+var num = 1;
+function first() {
+    num = 1;
+    get(num);
+}
+function get(n) {
+    var url = document.getElementById("url").value;
+    url = url.slice(28);
+    var myWindow = window.open("http://localhost:8000/open/"+n.toString()+"/open/"+url,"", "width=200,height=100");
+    setTimeout(function(){
+        myWindow.close()
+    }, 100);
+}
+
+function next() {
+    num += 1;
+    get(num);
+}
+
+function prev() {
+    num -= 1;
+    get(num);
+}
+
+</script>
+</html>
+
+<style>
+    div {
+        margin-left: 670px;
+        padding: 100px;
+    }
+    .btn {
+        width: 90px;
+        height: 50px;
+        margin-left: 160px;
+        background-color: grey;
+    }
+    #url {
+        width: 400px;
+        height: 30px;
+        color: blue;
+        font-family: monospace;
+        font-size: 20px;
+        border-color: blue;
+    }
+</style>
